@@ -43,6 +43,7 @@ class PyDepGraphDot(object):
                     aname, bname,
                     weight=depgraph.proximity_metric(a, b),
                     minlen=depgraph.dissimilarity_metric(a, b),
+                    label=bname.split('.')[-1]  # Add the class name as edge label
                 )
 
             for a, b in sorted(depgraph):
@@ -56,7 +57,9 @@ class PyDepGraphDot(object):
                 ctx.write_rule(
                     aname, bname,
                     weight=depgraph.proximity_metric(a, b),
-                    minlen=depgraph.dissimilarity_metric(a, b))
+                    minlen=depgraph.dissimilarity_metric(a, b),
+                    label=bname.split('.')[-1]  # Add the class name as edge label
+                )
 
                 visited.add(a)
                 visited.add(b)
