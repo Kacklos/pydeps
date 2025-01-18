@@ -54,9 +54,9 @@ class RenderContext(object):
                 {self.compound}
                 rankdir = {self.rankdir.value};
                 node [style=filled,fillcolor="{self.fillcolor}",fontcolor="{self.fontcolor}",fontname=Helvetica,fontsize=10];
-                edge [fontname=Helvetica,fontsize=9,fontcolor="#2D3436",labelfontsize=8,labeldistance=1.5];
-                splines=ortho;
-                overlap=false;
+                edge [fontname=Helvetica,fontsize=9,fontcolor="#2D3436"];
+                splines=true;
+                overlap=scale;
 
         """.format(
                 self=self

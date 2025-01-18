@@ -43,6 +43,9 @@ class PyDepGraphDot(object):
                     'weight': depgraph.proximity_metric(a, b),
                     'minlen': depgraph.dissimilarity_metric(a, b),
                     'label': bname.split('.')[-1],
+                    'dir': 'forward',
+                    'penwidth': '1.0',
+                    'arrowsize': '0.8',
                     'fontsize': '8',
                     'fontcolor': '#2D3436'
                 }
@@ -61,6 +64,9 @@ class PyDepGraphDot(object):
                     'weight': depgraph.proximity_metric(a, b),
                     'minlen': depgraph.dissimilarity_metric(a, b),
                     'label': bname.split('.')[-1],
+                    'dir': 'forward',
+                    'penwidth': '1.0',
+                    'arrowsize': '0.8',
                     'fontsize': '8',
                     'fontcolor': '#2D3436'
                 }
