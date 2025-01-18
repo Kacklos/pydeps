@@ -54,6 +54,7 @@ class RenderContext(object):
                 {self.compound}
                 rankdir = {self.rankdir.value};
                 node [style=filled,fillcolor="{self.fillcolor}",fontcolor="{self.fontcolor}",fontname=Helvetica,fontsize=10];
+                edge [fontname=Helvetica,fontsize=9,fontcolor="#555555",len=1.5];
 
         """.format(self=self))
         yield

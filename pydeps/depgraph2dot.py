@@ -43,7 +43,9 @@ class PyDepGraphDot(object):
                     aname, bname,
                     weight=depgraph.proximity_metric(a, b),
                     minlen=depgraph.dissimilarity_metric(a, b),
-                    label=bname.split('.')[-1]  # Add the class name as edge label
+                    label=" " + bname.split('.')[-1] + " ",  # Add spacing around label
+                    decorate=True,  # Add arrow decoration
+                    labeltooltip=bname  # Add full name as tooltip
                 )
 
             for a, b in sorted(depgraph):
@@ -58,7 +60,9 @@ class PyDepGraphDot(object):
                     aname, bname,
                     weight=depgraph.proximity_metric(a, b),
                     minlen=depgraph.dissimilarity_metric(a, b),
-                    label=bname.split('.')[-1]  # Add the class name as edge label
+                    label=" " + bname.split('.')[-1] + " ",  # Add spacing around label
+                    decorate=True,  # Add arrow decoration
+                    labeltooltip=bname  # Add full name as tooltip
                 )
 
                 visited.add(a)
