@@ -39,14 +39,15 @@ class PyDepGraphDot(object):
                 except KeyError:
                     continue
                 drawn.add((bname, aname))
-                ctx.write_rule(
-                    aname, bname,
-                    weight=depgraph.proximity_metric(a, b),
-                    minlen=depgraph.dissimilarity_metric(a, b),
-                    label=" " + bname.split('.')[-1] + " ",  # Add spacing around label
-                    decorate=True,  # Add arrow decoration
-                    labeltooltip=bname  # Add full name as tooltip
-                )
+                edge_attrs = {
+                    'weight': depgraph.proximity_metric(a, b),
+                    'minlen': depgraph.dissimilarity_metric(a, b),
+                    'label': bname.split('.')[-1],
+                    'fontsize': '8',
+                    'fontcolor': '#2D3436'
+                }
+                print(f"Adding edge {aname} -> {bname} with attrs: {edge_attrs}")  # Debug print
+                ctx.write_rule(aname, bname, **edge_attrs)
 
             for a, b in sorted(depgraph):
                 # b imports a
@@ -56,14 +57,15 @@ class PyDepGraphDot(object):
                     continue
                 drawn.add((bname, aname))
 
-                ctx.write_rule(
-                    aname, bname,
-                    weight=depgraph.proximity_metric(a, b),
-                    minlen=depgraph.dissimilarity_metric(a, b),
-                    label=" " + bname.split('.')[-1] + " ",  # Add spacing around label
-                    decorate=True,  # Add arrow decoration
-                    labeltooltip=bname  # Add full name as tooltip
-                )
+                edge_attrs = {
+                    'weight': depgraph.proximity_metric(a, b),
+                    'minlen': depgraph.dissimilarity_metric(a, b),
+                    'label': bname.split('.')[-1],
+                    'fontsize': '8',
+                    'fontcolor': '#2D3436'
+                }
+                print(f"Adding edge {aname} -> {bname} with attrs: {edge_attrs}")  # Debug print
+                ctx.write_rule(aname, bname, **edge_attrs)
 
                 visited.add(a)
                 visited.add(b)
